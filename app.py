@@ -65,7 +65,7 @@ class Run():
 global id
 id = ''
 
-Run().genMaze(10, 'RB', 'm1', 'm1')
+
 class App(tk.Tk):
 
     def __init__(self, *args, **kargs):
@@ -212,23 +212,6 @@ class loadMaze(tk.Frame):
         B1.grid(column=0, row=1, padx=10, pady=50)
         B2.grid(column=1, row=1, padx=10, pady=50)
 
-
-"""class quit(tk.Frame):
-
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-        times = SQLite.getTimes(id)
-        L1 = ttk.Label(self, text="Maze Info")
-        try:
-            L2 = ttk.Label(self, text="Time to generate : {}, Time to Solve: {}".format(times[0]))
-            L3 = ttk.Label(self, text="Time to solve : {}".format(times[1]))
-            L2.grid(column=0)
-            L3.grid(column=0)
-        except:
-            pass
-        B1 = ttk.Button(self, text='Back', command=lambda: controller.showFrame(startPage))
-        B1.grid(column=0, row=1, padx=40, pady=50)
-        L1.grid(column=0)"""
 
 
 app = App()
