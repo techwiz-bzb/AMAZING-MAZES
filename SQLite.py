@@ -33,7 +33,7 @@ def convertToBinaryData(filename):
     return blobData
 
 def insertBLOB(empId, name, photo, obj, time2gen):
-        if os.path.isfile('mazes.db'):
+    if os.path.isfile('mazes.db'):
         pass
     else:
         createTable()
