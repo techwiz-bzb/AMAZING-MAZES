@@ -1,5 +1,31 @@
 import sqlite3, os
 
+def createTable():
+    try:
+        conn = sqlite3.connect(r'mazes.db')
+        cursor = conn.cursor()
+        create_table = """CREATE TABLE mazes
+        (id int(3),
+        name string,
+        photo BLOB,
+        object BLOB,
+        solved_photo BLOB,
+        solved_object BLOB,
+        time2gen real,
+        time2solve real
+        )"""
+        cursor.execute(create_table)
+        conn.commit()
+        print('yes')
+        cursor.close()
+
+    except sqlite3.Error as error:
+        print('fail', error)
+    finally:
+        if (conn):
+            conn.close()
+            print("the sqlite connection is closed")
+                  
 def convertToBinaryData(filename):
     #Convert digital data to binary format
     with open(filename, 'rb') as file:
@@ -7,6 +33,10 @@ def convertToBinaryData(filename):
     return blobData
 
 def insertBLOB(empId, name, photo, obj, time2gen):
+        if os.path.isfile('mazes.db'):
+        pass
+    else:
+        createTable()
     try:
         conn = sqlite3.connect(r'mazes.db')
         cursor = conn.cursor()
