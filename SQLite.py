@@ -4,15 +4,15 @@ def createTable():
     try:
         conn = sqlite3.connect(r'mazes.db')
         cursor = conn.cursor()
-        create_table = """CREATE TABLE mazes
-        (id int(3),
-        name string,
-        photo BLOB,
-        object BLOB,
-        solved_photo BLOB,
-        solved_object BLOB,
-        time2gen real,
-        time2solve real
+        create_table = """CREATE TABLE mazes (
+	    id	TEXT,
+	    name	TEXT,
+	    photo	BLOB,
+	    object	BLOB,
+	    solved_object	BLOB,
+	    solved_photo	BLOB,
+	    time2gen	REAL,
+	    time2solve	REAL
         )"""
         cursor.execute(create_table)
         conn.commit()
@@ -41,7 +41,7 @@ def insertBLOB(empId, name, photo, obj, time2gen):
         conn = sqlite3.connect(r'mazes.db')
         cursor = conn.cursor()
         print("connected")
-        sqlite_insert = """ INSERT INTO mazes (id, name, photo, obj, time2gen) VALUES (?, ?, ?, ?, ?) """
+        sqlite_insert = """ INSERT INTO mazes (id, name, photo, object, time2gen) VALUES (?, ?, ?, ?, ?) """
         empPhoto = convertToBinaryData(photo)
         os.remove(photo)
         empObj = convertToBinaryData(obj)
@@ -63,7 +63,7 @@ def insertBLOBsolved(photo, obj, ID, time2solve):
         conn = sqlite3.connect(r'mazes.db')
         cursor = conn.cursor()
         print("connected")
-        sqlite_insert = """UPDATE mazes SET solved_obj = ?, solved_photo = ?, time2solve = ? WHERE id = ?;"""
+        sqlite_insert = """UPDATE mazes SET solved_object = ?, solved_photo = ?, time2solve = ? WHERE id = ?;"""
         empPhoto = convertToBinaryData(photo)
         os.remove(photo)
         empObj = convertToBinaryData(obj)
