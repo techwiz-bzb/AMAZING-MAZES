@@ -1,21 +1,23 @@
 # AMAZING-MAZES
-My first program, that works properly...sort of.
+My first program, that works properly.
 
-All you need to do to get it to work in ensure you have the following python libraries installed.
+To ensure the program with run. You will have to install the following python libraries.
 
-- PIL
-- sys
+- Python Imaging Library (Fork) - URL - https://pypi.org/project/Pillow/
 
 Then run the app.py file. 
 
-You will first need to generate a maze. 
+You will first need to generate a maze, this maze will be stored in a SQL database along with its time to generate.
 
-Currently the RB (Revese Backtracking) can only make mazes up to about 50x50. Above that you will need to use my BT (binary tree algorithm). You can generate as many mazes as you like so long as they have unique names.
+Generation algorithm: "RB" and "BT". (without quotes)
+
+Currently the RB (Revese Backtracking) can only make mazes up to about 50x50. Above that you will need to use a BT (binary tree algorithm). You can generate a large number of different mazes but each one must have a unique name.
 
 Then you can then either solve or load a maze from the database.
 
-Solving will draw a path from the top left to bottom right, this will also save the solved maze to the database so it can be loaded at a later on, or on another day.
+Solving will draw a path from the top left corner to bottom right corner, this will also save the solved maze to the database meaning to program can be safely closed and no data lost. I have only implented one solving fuction.
 
-Loading will just load a maze unsolved and if its been solved, then will load the solved maze aswell. Also it creates a popup of times to generate and solve.
+Loading will just load a maze unsolved and if its been solved, then will load the solved maze aswell. Also it creates a popup of times to generate and solve. And also leave a .png file in the images folder of all mazes loaded.
 
-Hope you enjoy, Billy.
+Hope you enjoy,
+Billy.
